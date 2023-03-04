@@ -10,11 +10,15 @@
   </url><url>
     <loc>https://nsinha.me/contact/</loc>
   </url><url>
+    <loc>https://nsinha.me/wiki/git/</loc>
+  </url><url>
     <loc>https://nsinha.me/projects/math-brain-trainer/</loc>
   </url><url>
     <loc>https://nsinha.me/diary/</loc>
   </url><url>
     <loc>https://nsinha.me/</loc>
+  </url><url>
+    <loc>https://nsinha.me/notes/</loc>
   </url><url>
     <loc>https://nsinha.me/projects/</loc>
   </url><url>
@@ -23,5 +27,7 @@
     <loc>https://nsinha.me/tags/</loc>
   </url><url>
     <loc>https://nsinha.me/whatiuse/</loc>
+  </url><url>
+    <loc>https://nsinha.me/wiki/</loc>
   </url>
 </urlset>
