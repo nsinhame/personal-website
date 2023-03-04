@@ -7,8 +7,8 @@
 <meta name="robots" content="index, follow">
 <title>Git | Nikhil Sinha</title>
 <meta name="keywords" content="" />
-<meta name="description" content="Git is a free and open source distributed version control system designed to handle everything from small to very large projects with speed and efficiency that tracks changes in any set of computer files, usually used for coordinating work among programmers collaboratively developing source code during software development. Its goals include speed, data integrity, and support for distributed, non-linear workflows.
-echo &#34;# temp&#34; &gt;&gt; README.md git init git add README.md git commit -m &#34;first commit&#34; git branch -M main git remote add origin https://github.">
+<meta name="description" content="Git is a free and open source distributed version control system designed to handle everything from small to very large projects with speed and efficiency that tracks changes in any set of computer files, usually used for coordinating work among programmers collaboratively developing source code during software development.
+Git Basics - To initialize git git init To add a file # To add a single file named README.md git add README.">
 <meta name="author" content="Nikhil Sinha">
 <link rel="canonical" href="https://nsinha.me/wiki/git/" />
 <link crossorigin="anonymous" href="/assets/css/stylesheet.min.7bfe087ae72df31787ec7a1360dd05ee246a179b51cf7a30a904b39d7f813b69.css" integrity="sha256-e/4Ieuct8xeH7HoTYN0F7iRqF5tRz3owqQSznX&#43;BO2k=" rel="preload stylesheet" as="style">
@@ -130,15 +130,45 @@ echo &#34;# temp&#34; &gt;&gt; README.md git init git add README.md git commit -
   <h1>Git</h1>
 </header>
 <div class="post-content">
-<p>Git is a free and open source distributed version control system designed to handle everything from small to very large projects with speed and efficiency that tracks changes in any set of computer files, usually used for coordinating work among programmers collaboratively developing source code during software development. Its goals include speed, data integrity, and support for distributed, non-linear workflows.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;# temp&#34;</span> &gt;&gt; README.md
-</span></span><span class="line"><span class="cl">git init
-</span></span><span class="line"><span class="cl">git add README.md
-</span></span><span class="line"><span class="cl">git commit -m <span class="s2">&#34;first commit&#34;</span>
-</span></span><span class="line"><span class="cl">git branch -M main
-</span></span><span class="line"><span class="cl">git remote add origin https://github.com/nsinha-me/temp.git
-</span></span><span class="line"><span class="cl">git push -u origin main
-</span></span></code></pre></div>
+<p>Git is a free and open source distributed version control system designed to handle everything from small to very large projects with speed and efficiency that tracks changes in any set of computer files, usually used for coordinating work among programmers collaboratively developing source code during software development.</p>
+<h3 id="git-basics--">Git Basics -</h3>
+<ol>
+<li>To initialize git
+<pre tabindex="0"><code>git init
+</code></pre></li>
+<li>To add a file
+<pre tabindex="0"><code># To add a single file named README.md
+git add README.md
+
+# To add all the files in the present directory
+git add .
+</code></pre></li>
+<li>To commit changes
+<pre tabindex="0"><code>git commit -m &#34;first commit&#34;
+</code></pre></li>
+<li>To specify the branch we will work with
+<pre tabindex="0"><code>git branch -M main
+</code></pre></li>
+<li>To add remote repo (here we have named origin, but you can specify any name)
+<pre tabindex="0"><code>git remote add origin [git repo link here]
+</code></pre></li>
+<li>To push the changes (here origin is the remote and main is the branch. Change it according to your need.)
+<pre tabindex="0"><code>git push -u origin main
+</code></pre></li>
+</ol>
+<h3 id="fix-git-always-asking-for-user-credentials--">Fix Git always asking for user credentials -</h3>
+<ol>
+<li>Make Git store the username and password and it will never ask for them.
+<pre tabindex="0"><code>git config --global credential.helper store
+</code></pre></li>
+<li>Save the username and password for a session (cache it);
+<pre tabindex="0"><code>git config --global credential.helper cache
+</code></pre></li>
+<li>You can also set a timeout for the above setting
+<pre tabindex="0"><code>git config --global credential.helper &#39;cache --timeout=600&#39;
+</code></pre></li>
+</ol>
+
 </div>
     </main>
     
