@@ -5,12 +5,15 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
-<title>Notes | Nikhil Sinha</title>
+<title>Vim | Nikhil Sinha</title>
 <meta name="keywords" content="" />
-<meta name="description" content="This is a place where I put things that aren’t mine but would hate to go and search online again or just things that don’t belong to me, but that I acquired by fair means. A collection of things I know that aren’t mine.
-Git Vim ">
+<meta name="description" content="Vim is a highly configurable text editor built to make creating and changing any kind of text very efficient.
+To remove the last word from each line - :%s/\s*\w\&#43;\s*$// This tells it to find optional whitespace, followed by one or more word characters, followed by optional whitespace, followed by end of line—then replace it with nothing.
+Before:
+abcdef 123 xyz 1256 qwert 2 asdf 159 After:
+abcdef xyz qwert asdf Delete everything after every a specified word - With substitutions you can do many things (see :help substitute).">
 <meta name="author" content="Nikhil Sinha">
-<link rel="canonical" href="https://nsinha.me/notes/" />
+<link rel="canonical" href="https://nsinha.me/wiki/vim/" />
 <link crossorigin="anonymous" href="/assets/css/stylesheet.min.7bfe087ae72df31787ec7a1360dd05ee246a179b51cf7a30a904b39d7f813b69.css" integrity="sha256-e/4Ieuct8xeH7HoTYN0F7iRqF5tRz3owqQSznX&#43;BO2k=" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://nsinha.me/images/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="https://nsinha.me/images/favicon-16x16.png">
@@ -19,7 +22,7 @@ Git Vim ">
 <link rel="mask-icon" href="https://nsinha.me/images/apple-touch-icon.png">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" type="application/rss+xml" href="https://nsinha.me/notes/index.xml">
+<link rel="alternate" type="application/rss+xml" href="https://nsinha.me/wiki/vim/index.xml">
 <noscript>
     <style>
         #theme-toggle,
@@ -109,7 +112,7 @@ Git Vim ">
             </li>
             <li>
                 <a href="https://nsinha.me/notes/" title="Notes">
-                    <span class="active">Notes</span>
+                    <span>Notes</span>
                 </a>
             </li>
             <li>
@@ -126,16 +129,42 @@ Git Vim ">
     </nav>
 </header>
 <main class="main"> 
-<header class="page-header"><div class="breadcrumbs"><a href="https://nsinha.me">Home</a></div>
-  <h1>Notes</h1>
+<header class="page-header"><div class="breadcrumbs"><a href="https://nsinha.me">Home</a>&nbsp;»&nbsp;<a href="https://nsinha.me/wiki/">Wikis</a></div>
+  <h1>Vim</h1>
 </header>
 <div class="post-content">
-<p>This is a place where I put things that aren’t mine but would hate to go and search online again or just things that don’t belong to me, but that I acquired by fair means. A collection of things I know that aren’t mine.</p>
-<ul>
-<li><a href="/wiki/git">Git</a></li>
-<li><a href="/wiki/vim">Vim</a></li>
-</ul>
-
+<p>Vim is a highly configurable text editor built to make creating and changing any kind of text very efficient.</p>
+<h3 id="to-remove-the-last-word-from-each-line--">To remove the last word from each line -</h3>
+<pre tabindex="0"><code>:%s/\s*\w\+\s*$//
+</code></pre><p>This tells it to find optional whitespace, followed by one or more word characters, followed by optional whitespace, followed by end of line—then replace it with nothing.</p>
+<p>Before:</p>
+<pre tabindex="0"><code>abcdef 123
+xyz 1256
+qwert 2
+asdf 159
+</code></pre><p>After:</p>
+<pre tabindex="0"><code>abcdef
+xyz
+qwert
+asdf
+</code></pre><h3 id="delete-everything-after-every-a-specified-word--">Delete everything after every a specified word -</h3>
+<p>With substitutions you can do many things (see :help substitute). One is that you can remember the first word with a capture group by enclosing that part with ( and ), matching the rest of the line (but not remembering it) and then replacing the line with the remembered group using \1</p>
+<pre tabindex="0"><code>:%s/\(fruit\).*$/\1/
+</code></pre><p>Before:</p>
+<pre tabindex="0"><code>fruit banana
+fruit apple
+fruit grape
+planet jupiter
+planet mars
+planet saturn
+</code></pre><p>After:</p>
+<pre tabindex="0"><code>fruit
+fruit
+fruit
+planet jupiter
+planet mars
+planet saturn
+</code></pre>
 </div>
     </main>
     
