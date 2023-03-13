@@ -2,21 +2,26 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://nsinha.me/blog/</loc>
+    <lastmod>2023-03-13T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://nsinha.me/blog/flashing-effect-imagemagick-ffmpeg/</loc>
+    <lastmod>2023-03-13T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://nsinha.me/</loc>
+    <lastmod>2023-03-13T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://nsinha.me/about/</loc>
   </url><url>
     <loc>https://nsinha.me/wiki/arch/</loc>
   </url><url>
     <loc>https://nsinha.me/articles/</loc>
   </url><url>
-    <loc>https://nsinha.me/blogs/</loc>
-  </url><url>
     <loc>https://nsinha.me/categories/</loc>
   </url><url>
     <loc>https://nsinha.me/contact/</loc>
   </url><url>
     <loc>https://nsinha.me/wiki/git/</loc>
-  </url><url>
-    <loc>https://nsinha.me/blogs/article/</loc>
   </url><url>
     <loc>https://nsinha.me/wiki/imagemagick/</loc>
   </url><url>
@@ -26,11 +31,7 @@
   </url><url>
     <loc>https://nsinha.me/diary/</loc>
   </url><url>
-    <loc>https://nsinha.me/</loc>
-  </url><url>
     <loc>https://nsinha.me/notes/</loc>
-  </url><url>
-    <loc>https://nsinha.me/project/</loc>
   </url><url>
     <loc>https://nsinha.me/projects/</loc>
   </url><url>
