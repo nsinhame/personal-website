@@ -166,7 +166,7 @@
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="o">[</span>iwd<span class="o">]</span><span class="c1"># exit</span>
 </span></span></code></pre></div><p>Now to check the connectivity, use the ping command as shown in above section.</p>
 <h3 id="2-configure-the-pacmanconf">2. Configure the pacman.conf</h3>
-<p>Before installing arch, lets configure the pacman configuration file to speed up our install process.<br>
+<p>Before installing arch, lets edit the pacman configuration file to speed up our install process.<br>
 By default pacman downloads only one package at a time. This setting can be overridden by changing the configuration file. Open the config file-</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># nano /etc/pacman.conf</span>
 </span></span></code></pre></div><p>Find the <code>#ParallelDownloads = 5</code> line, uncomment it and change the value to 30.</p>
