@@ -7,7 +7,7 @@
 <meta name="robots" content="index, follow">
 <title>Install Arch Linux using archinstall script | Nikhil Sinha</title>
 <meta name="keywords" content="" />
-<meta name="description" content="One of the dreams of linux users is to install Arch or Gentoo linux (atleast it was for me). There are many distros that are Arch based like ArcoLinux or EndeavourOS. But they don&rsquo;t give the feeling of installing arch. Installing Arch is little tricky (Gentoo users be like: hold my beer), but there is already archinstall script prebuilt inside the arch live iso. Lets see how easy is the archinstall script.">
+<meta name="description" content="One of the dreams of linux users is to install Arch or Gentoo linux (atleast it was for me). There are many distros that are Arch based like ArcoLinux or EndeavourOS. But they don&rsquo;t give the feeling of installing arch. Installing Arch is little tricky (Gentoo users be like: hold my beer), but there is already archinstall script prebuilt inside the arch live iso. Lets see how easy it is to install arch using the archinstall script.">
 <meta name="author" content="Nikhil Sinha">
 <link rel="canonical" href="https://nsinha.me/blog/archinstall/" />
 <link crossorigin="anonymous" href="/assets/css/stylesheet.min.7bfe087ae72df31787ec7a1360dd05ee246a179b51cf7a30a904b39d7f813b69.css" integrity="sha256-e/4Ieuct8xeH7HoTYN0F7iRqF5tRz3owqQSznX&#43;BO2k=" rel="preload stylesheet" as="style">
@@ -141,7 +141,7 @@
     <div class="post-meta"><span title='2023-03-22 00:00:00 +0000 UTC'>March 22, 2023</span>&nbsp;·&nbsp;Nikhil Sinha</div>
   </header> 
   <div class="post-content">
-  <p>One of the dreams of linux users is to install Arch or Gentoo linux (atleast it was for me). There are many distros that are Arch based like ArcoLinux or EndeavourOS. But they don&rsquo;t give the feeling of installing arch. Installing Arch is little tricky (Gentoo users be like: hold my beer), but there is already archinstall script prebuilt inside the arch live iso. Lets see how easy is the archinstall script.</p>
+  <p>One of the dreams of linux users is to install Arch or Gentoo linux (atleast it was for me). There are many distros that are Arch based like ArcoLinux or EndeavourOS. But they don&rsquo;t give the feeling of installing arch. Installing Arch is little tricky (Gentoo users be like: hold my beer), but there is already archinstall script prebuilt inside the arch live iso. Lets see how easy it is to install arch using the archinstall script.</p>
 <h3 id="1-connect-to-internet">1. Connect to internet</h3>
 <p>Once you have booted arch from the live usb stick, the very first step is to connect to the internet. The arch install requires internet connection to download packages on the go.</p>
 <h3 id="11-lan">1.1 LAN</h3>
@@ -175,13 +175,12 @@ By default pacman downloads only one package at a time. This setting can be over
 <h3 id="3-install-arch">3. Install Arch</h3>
 <p>Use the archinstall magic script.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># archinstall</span>
-</span></span></code></pre></div><p>After this, the process is very simple. So I am not writing each step of this. You can figure it out easily. For more details you can look at <a href="https://python-archinstall.readthedocs.io/en/latest/installing/guided.html#description-individual-steps">this doc</a>.</p>
+</span></span></code></pre></div><p>After this, the process is very simple. So I am not writing each step of this. You can figure it out easily. For more details you can have a look at <a href="https://python-archinstall.readthedocs.io/en/latest/installing/guided.html#description-individual-steps">this doc</a>.</p>
 <h3 id="4-post-installation">4. Post Installation</h3>
-<p>After the installation is complete, you will be given a prompt to chroot into the newly installed os to do some addition work as required. If you have installed some desktop environment like gnome or kde, then this step is not important. You can skip this step and reboot to your new installed Arch Linux.<br>
+<p>After the installation is complete, you will be given a prompt to chroot into the newly installed os to do some additional work as required. If you have installed some desktop environment like gnome or kde, then this step is not important. You can skip this step and reboot to your new installed Arch Linux.<br>
 But if you have installed some window manager, then you might require some tweaking. The amount of configuration to be done varies from wm&rsquo;s to wm&rsquo;s. I will show you the post install bspwm config you should do.</p>
 <h3 id="41-bspwm">4.1 BSPWM</h3>
-<p>Once you chroot-ed in the newly installed os. The example configuration is located in <code>/usr/share/doc/bspwm/examples/</code>.<br>
-Make the config directory for bspwm and sxhkd.</p>
+<p>The example configuration is located in <code>/usr/share/doc/bspwm/examples/</code>. Once you chroot-ed in the newly installed os. Make the config directory for bspwm and sxhkd.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># mkdir /home/(your user name here)/.config/bspwm</span>
 </span></span><span class="line"><span class="cl"><span class="c1"># mkdir /home/(your user name here)/.config/sxhkd</span>
 </span></span></code></pre></div><p>After that, you can copy the default config files and make them executable or you can install it with executable rights.</p>
@@ -197,8 +196,8 @@ Make the config directory for bspwm and sxhkd.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># nano /home/(your user name)/.config/sxhkd/sxhkdrc</span>
 </span></span></code></pre></div><p>Save it and exit. Finally exit the chroot and then reboot. Hurrayyyyyyy!!!!</p>
 <h3 id="final-thought">Final thought</h3>
-<p>Installing arch is little tricky and tiresome for newbie&rsquo;s. But at the end, it was fun for me. Got to learn many things that I would have never learnt otherwise. And now I can also say the very famous line, &ldquo;I use Arch, btw&rdquo;. But this is just the beginning. I have to install arch without using the archinstall script.<br>
-I would love to hear your opinions and experiences about this topic. And also the mistakes and improvements in the code/blog. You can mail me at <a href="mailto:nikhil@nsinha.me">nikhil@nsinha.me</a> .</p>
+<p>Installing arch is little tricky and tiresome for newbie&rsquo;s. But at the end, it was fun for me. Got to learn many things that I would have never learnt otherwise. And now I can also say the very famous line, &ldquo;I use Arch, btw&rdquo;. But this is just the beginning. I have to install arch without using the archinstall script.</p>
+<p>I would love to hear your opinions and experiences about this topic. And also the mistakes and improvements in the code/blog. You can mail me at <a href="mailto:nikhil@nsinha.me">nikhil@nsinha.me</a> .</p>
 
   </div>
 
