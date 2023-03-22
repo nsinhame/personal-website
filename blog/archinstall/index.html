@@ -5,12 +5,11 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
-<title>Flashing effect with ImageMagick and FFmpeg | Nikhil Sinha</title>
+<title>Install Arch Linux using archinstall script | Nikhil Sinha</title>
 <meta name="keywords" content="" />
-<meta name="description" content="Recently, I had been experimenting with Imagemagick, and suddenly got an idea to make a flashing effect with Imagemagick, FFmpeg and shell script. Before sharing the procedure, let me show you the cool output.
-1. Creating basic image using ImageMagick We will use the convert tool of the Imagemagick to create a black canvas of size 1080x1080. Now we will add text to the canvas. For the text color I have chosen white, FreeMono as font style with fontsize 120.">
+<meta name="description" content="One of the dreams of linux users is to install Arch or Gentoo linux (atleast it was for me). There are many distros that are Arch based like ArcoLinux or EndeavourOS. But they don&rsquo;t give the feeling of installing arch. Installing Arch is little tricky (Gentoo users be like: hold my beer), but there is already archinstall script prebuilt inside the arch live iso. Lets see how easy is the archinstall script.">
 <meta name="author" content="Nikhil Sinha">
-<link rel="canonical" href="https://nsinha.me/blog/flashing-effect-imagemagick-ffmpeg/" />
+<link rel="canonical" href="https://nsinha.me/blog/archinstall/" />
 <link crossorigin="anonymous" href="/assets/css/stylesheet.min.7bfe087ae72df31787ec7a1360dd05ee246a179b51cf7a30a904b39d7f813b69.css" integrity="sha256-e/4Ieuct8xeH7HoTYN0F7iRqF5tRz3owqQSznX&#43;BO2k=" rel="preload stylesheet" as="style">
 <script defer crossorigin="anonymous" src="/assets/js/highlight.min.b95bacdc39e37a332a9f883b1e78be4abc1fdca2bc1f2641f55e3cd3dabd4d61.js" integrity="sha256-uVus3DnjejMqn4g7Hni&#43;Srwf3KK8HyZB9V4809q9TWE="
     onload="hljs.initHighlightingOnLoad();"></script>
@@ -137,69 +136,46 @@
   <header class="post-header">
     
     <h1 class="post-title">
-      Flashing effect with ImageMagick and FFmpeg
+      Install Arch Linux using archinstall script
     </h1>
-    <div class="post-meta"><span title='2023-03-13 00:00:00 +0000 UTC'>March 13, 2023</span>&nbsp;·&nbsp;Nikhil Sinha</div>
+    <div class="post-meta"><span title='2023-03-22 00:00:00 +0000 UTC'>March 22, 2023</span>&nbsp;·&nbsp;Nikhil Sinha</div>
   </header> 
   <div class="post-content">
-  <p>Recently, I had been experimenting with Imagemagick, and suddenly got an idea to make a flashing effect with Imagemagick, FFmpeg and shell script. Before sharing the procedure, let me show you the cool output.</p>
-<figure><img src="/images/blog/flashing-effect/output.gif" height="300px"/>
-</figure>
-
-<h3 id="1-creating-basic-image-using-imagemagick">1. Creating basic image using ImageMagick</h3>
-<p>We will use the <code>convert</code> tool of the Imagemagick to create a black canvas of size 1080x1080. Now we will add text to the canvas. For the text color I have chosen white, <code>FreeMono</code> as font style with fontsize 120. The <code>gravity</code> property defines the position of the text.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">convert <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>-size 1080x1080 <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>-background black <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>-pointsize <span class="m">120</span> <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>-font FreeMono <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>-fill white <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>-gravity center <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>caption:<span class="s2">&#34;nsinha.me&#34;</span> <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>output.jpg
-</span></span></code></pre></div><h3 id="2-shell-script">2. Shell Script</h3>
-<p>Here the magic happens. The logic is, we will create 400 images of alternating colors i.e. the first image will have white background with black color text, the second image will have black background with white color text and so on.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="cp">#!/bin/bash
-</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
-</span></span><span class="line"><span class="cl"><span class="nv">n</span><span class="o">=</span><span class="m">500</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="nv">i</span><span class="o">=</span><span class="m">101</span>
-</span></span><span class="line"><span class="cl"><span class="k">while</span> <span class="o">[</span> <span class="nv">$i</span> -le <span class="nv">$n</span> <span class="o">]</span>   
-</span></span><span class="line"><span class="cl"><span class="k">do</span>  
-</span></span><span class="line"><span class="cl">	<span class="nv">rs</span><span class="o">=</span><span class="sb">`</span>expr <span class="nv">$i</span> % 2<span class="sb">`</span>
-</span></span><span class="line"><span class="cl">	<span class="k">if</span> <span class="o">[</span> <span class="nv">$rs</span> <span class="o">==</span> <span class="m">0</span> <span class="o">]</span>
-</span></span><span class="line"><span class="cl">	<span class="k">then</span>
-</span></span><span class="line"><span class="cl">	convert -size 1080x1080 -background black -pointsize <span class="m">120</span> -font FreeMono -fill white -gravity center caption:<span class="s2">&#34;nsinha.me&#34;</span> <span class="nv">$i</span>.jpg
-</span></span><span class="line"><span class="cl">	<span class="k">fi</span>
-</span></span><span class="line"><span class="cl">	<span class="o">((</span>++i<span class="o">))</span>  
-</span></span><span class="line"><span class="cl"><span class="k">done</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="nv">i</span><span class="o">=</span><span class="m">101</span>
-</span></span><span class="line"><span class="cl"><span class="k">while</span> <span class="o">[</span> <span class="nv">$i</span> -le <span class="nv">$n</span> <span class="o">]</span>
-</span></span><span class="line"><span class="cl"><span class="k">do</span>
-</span></span><span class="line"><span class="cl">	<span class="nv">rs</span><span class="o">=</span><span class="sb">`</span>expr <span class="nv">$i</span> % 2<span class="sb">`</span>
-</span></span><span class="line"><span class="cl">	<span class="k">if</span> <span class="o">[</span> <span class="nv">$rs</span> !<span class="o">=</span> <span class="m">0</span> <span class="o">]</span>
-</span></span><span class="line"><span class="cl">	<span class="k">then</span>
-</span></span><span class="line"><span class="cl">	convert -size 1080x1080 -background white -pointsize <span class="m">120</span> -font FreeMono -fill black -gravity center caption:<span class="s2">&#34;nsinha.me&#34;</span> <span class="nv">$i</span>.jpg
-</span></span><span class="line"><span class="cl">	<span class="k">fi</span>
-</span></span><span class="line"><span class="cl">	<span class="o">((</span>++i<span class="o">))</span>
-</span></span><span class="line"><span class="cl"><span class="k">done</span>
-</span></span></code></pre></div><p>We are naming the images created depending on the value of variable <code>i</code> as <code>101.jpg</code>, <code>102.jpg</code>,&hellip;,<code>500.jpg</code>.</p>
-<h3 id="3-creating-video-with-ffmpeg">3. Creating video with FFmpeg</h3>
-<p>This step is the easiest one. We have all the images in a directory. So, now we will tell FFmpeg to take all the images with the extension <code>.jpg</code> and create a video out of it. I have set the framerate as <code>50</code>, adjust it according to your need.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">ffmpeg <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>-framerate <span class="m">50</span> <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>-pattern_type glob <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>-i <span class="s1">&#39;*.jpg&#39;</span> <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>-c:v libx264 <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>-r <span class="m">30</span> <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>-pix_fmt yuv420p <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>output.mp4
-</span></span></code></pre></div><h3 id="final-thought">Final thought</h3>
-<p>I was happy after creating this flashing effect. Creating something visual by purely using code was something new for me. Also learnt some shell scripting in this process.<br>
-I would love to hear your opinions and experiences about this topic. And also the mistakes and improvements in the code/blog. You can mail me at <a href="mailto:nikhil@nsinha.me">nikhil@nsinha.me</a> .</p>
-
+  <p>One of the dreams of linux users is to install Arch or Gentoo linux (atleast it was for me). There are many distros that are Arch based like ArcoLinux or EndeavourOS. But they don&rsquo;t give the feeling of installing arch. Installing Arch is little tricky (Gentoo users be like: hold my beer), but there is already archinstall script prebuilt inside the arch live iso. Lets see how easy is the archinstall script.</p>
+<h3 id="1-connect-to-internet">1. Connect to internet</h3>
+<p>Once you have booted arch from the live usb stick, the very first step is to connect to the internet. The arch install requires internet connection to download packages on the go.</p>
+<h3 id="11-lan">1.1 LAN</h3>
+<p>If you are connected to LAN, then simply check the connectivity by using the ping command.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># ping google.com</span>
+</span></span></code></pre></div><p>If the internet connection is working, then the above command will return bytes sent and the time taken. And if the connection is not working, then it will return error.</p>
+<h3 id="12-wifi">1.2 WIFI</h3>
+<p>If you are on wifi, then you have to do little more work. <code>iwctl</code> is the tool we will be using to connect to wifi network. It will give us the <code>iwd</code> interactive prompt.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># iwctl</span>
+</span></span></code></pre></div><p>First, if you do not know your wireless device name, list all Wi-Fi devices:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="o">[</span>iwd<span class="o">]</span><span class="c1"># device list</span>
+</span></span></code></pre></div><p>If the device or its corresponding adapter is turned off, turn it on:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="o">[</span>iwd<span class="o">]</span><span class="c1"># device deviceName set-property Powered on</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="o">[</span>iwd<span class="o">]</span><span class="c1"># adapter adapterName set-property Powered on</span>
+</span></span></code></pre></div><p>Then, to initiate a scan for networks (note that this command will not output anything):</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="o">[</span>iwd<span class="o">]</span><span class="c1"># station deviceName scan</span>
+</span></span></code></pre></div><p>You can then list all available networks:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="o">[</span>iwd<span class="o">]</span><span class="c1"># station deviceName get-networks</span>
+</span></span></code></pre></div><p>Finally, to connect to a network:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="o">[</span>iwd<span class="o">]</span><span class="c1"># station deviceName connect SSID</span>
+</span></span></code></pre></div><p>Then exit.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="o">[</span>iwd<span class="o">]</span><span class="c1"># exit</span>
+</span></span></code></pre></div><p>Now to check the connectivity, use the ping command as shown in above section.</p>
+<h3 id="2-configure-the-pacmanconf">2. Configure the pacman.conf</h3>
+<p>Before installing arch, lets configure the pacman configuration file to speed up our install process.<br>
+By default pacman downloads only one package at a time. This setting can be overridden by changing the configuration file. Open the config file-</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># nano /etc/pacman.conf</span>
+</span></span></code></pre></div><p>Find the <code>#ParallelDownloads = 5</code> line, uncomment it and change the value to 30.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nv">ParallelDownloads</span> <span class="o">=</span> <span class="m">30</span>
+</span></span></code></pre></div><p>Save it and exit.</p>
+<h3 id="3-install-arch">3. Install Arch</h3>
+<p>Use the archinstall magic script.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># archinstall</span>
+</span></span></code></pre></div>
   </div>
 
   <footer class="post-footer">
