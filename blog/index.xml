@@ -12,7 +12,26 @@
       <pubDate>Sun, 26 Mar 2023 00:00:00 +0000</pubDate>
       
       <guid>https://nsinha.me/blog/firefox-addons/</guid>
-      <description></description>
+      <description>This article has not yet been completed. You can come and check it later.
+https://addons.mozilla.org/en-US/firefox/addon/i-auto-fullscreen/
+https://addons.mozilla.org/en-US/firefox/addon/autofullscreen/
+https://addons.mozilla.org/en-US/firefox/addon/bitwarden-password-manager/
+https://addons.mozilla.org/en-US/firefox/addon/clearurls/
+https://addons.mozilla.org/en-US/firefox/addon/sponsorblock/
+https://addons.mozilla.org/en-US/firefox/addon/ublock-origin/
+https://addons.mozilla.org/en-US/firefox/addon/youtube-recommended-videos/
+https://addons.mozilla.org/en-US/firefox/addon/videospeed/
+https://addons.mozilla.org/en-US/firefox/addon/youtube-high-definition/
+https://addons.mozilla.org/en-US/firefox/addon/youtube-window-fullscreen/
+https://addons.mozilla.org/en-US/firefox/addon/video-downloadhelper/
+https://addons.mozilla.org/en-US/firefox/addon/midnight-lizard-quantum/
+https://addons.mozilla.org/en-US/firefox/addon/languagetool/
+https://addons.mozilla.org/en-US/firefox/addon/i-dont-care-about-cookies/
+https://addons.mozilla.org/en-US/firefox/addon/link-gopher/
+https://addons.mozilla.org/en-US/firefox/addon/return-youtube-dislikes/
+https://addons.mozilla.org/en-US/firefox/addon/simple-translate/
+https://addons.mozilla.org/en-US/firefox/addon/dictionary-anyvhere/
+https://addons.mozilla.org/en-US/firefox/addon/multi-account-containers/</description>
     </item>
     
     <item>
@@ -21,7 +40,16 @@
       <pubDate>Sat, 25 Mar 2023 00:00:00 +0000</pubDate>
       
       <guid>https://nsinha.me/blog/things-to-do-after-installing-arch/</guid>
-      <description></description>
+      <description>This article has not been completed. You can come again after some time.
+lsblk
+umount /mnt
+shutdown now
+bspwm config - .config/bspwm/bspwmrc
+sxhkd config - `.config/sxhkd/sxhkdrc
+mkdir code dl docs music pics vids
+For unlimited bash history
+cat ~/.bash_history &amp;gt;&amp;gt;~/.bash_eternal_history
+# Eternal bash history. # --------------------- # Undocumented feature which sets the size to &amp;#34;unlimited&amp;#34;. # http://stackoverflow.com/questions/9457233/unlimited-bash-history export HISTFILESIZE=-1 export HISTSIZE=-1 export HISTTIMEFORMAT=&amp;#34;[%F %T] &amp;#34; # Change the file location because certain bash sessions truncate .</description>
     </item>
     
     <item>
